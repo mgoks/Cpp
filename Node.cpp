@@ -26,14 +26,32 @@ Node::~Node()
 
 }
 
-int Node::getData() {}
+int Node::getData()
+{
+    return this->data;
+}
 
-Node* Node::getNext() {}
+Node* Node::getNext()
+{
+    return this->next;
+}
 
-Node* Node::getPrev() {}
+Node* Node::getPrev()
+{
+    return this->prev;
+}
 
-void Node::setData(int data) {}
+void Node::setData(int data)
+{
+    this->data = data;
+}
 
-void Node::setNext(Node *next) {}
+void Node::setNext(Node *next)
+{
+    this->next = next;
+}
 
-void Node::setPrev(Node *prev) {}
+void Node::setPrev(Node *prev)
+{
+    this->prev = prev;
+}
