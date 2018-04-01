@@ -1,17 +1,6 @@
 #include <iostream>
-using namespace std;
 
-/*
- * Answer 1
- *
- * A function in C++ cannot return an array by value but it can return
- * the memory address or a reference to the array.
- * Returning an array by address involves returning a pointer to the the address of the
- * first element of the array.
- * When returning a reference to the array, the reference is passed to the
- * caller. The caller can then use this reference to continue modifying
- * the array.
- */
+using namespace std;
 
 const int rows = 5;
 const int cols = 5;
@@ -20,32 +9,26 @@ const int len = 25;    // Length of the 1D-array which represents the a matrix
 void fillMatrix(int matrix[rows][cols]);
 void printMatrix(int matrix[rows][cols]);
 void transposeMatrix(int matrix[rows][cols]);
-
 void multiply(int a[rows][cols], int b[rows][cols], int c[rows][cols]);
 void recMultiply(int a[rows][cols], int b[rows][cols], int c[rows][cols]);
-
 void fillMatrix2(int** pp);
 void printMatrix2(int** pp);
 void transposeMatrix2(int** pp);
-
 void fillMatrix(int a[len]);
 void printMatrix(int a[len]);
 
 
 int main() 
 {
-    // 2 & 3
     int a[rows][cols] = {0};
     fillMatrix(a);  
     cout << "2 & 3)\nMatrix A:" << endl;
     printMatrix(a); 
 
-    // 4
     transposeMatrix(a);
     cout << "4)\nTranspose of A (A^T):" << endl;
     printMatrix(a);
 
-    // 5
     int b[rows][cols] = {0};
     fillMatrix(b);
     cout << "5) Iterative multiplication\nMatrix B:" << endl;
@@ -55,14 +38,12 @@ int main()
     cout << "A^T x B:" << endl;
     printMatrix(AxB);
 
-    // 6
     cout << "6) Recursive multiplication" << endl;
     int recAxB[rows][cols] = {0};
     recMultiply(a, b, recAxB);
     cout << "A^T x B:" << endl;
     printMatrix(recAxB);
 
-    // 7
     cout << "7) Matrix operations with pointer notation" << endl;
     int array2d[rows][cols] = { { } };
     int* ptr[rows];    // array of 5 pointers
@@ -75,7 +56,6 @@ int main()
     transposeMatrix2(ptr);
     printMatrix2(ptr);
 
-    // 8
     cout << "8) Using 1D array:" << endl;
     int array1d[len];
     fillMatrix(array1d);
@@ -85,7 +65,6 @@ int main()
 }
 
 /*
- * Answer 2
  * Fills input matrix with random integers
  */
 void fillMatrix(int matrix[rows][cols])
@@ -101,7 +80,6 @@ void fillMatrix(int matrix[rows][cols])
 }
 
 /*
- * Answer 3
  * Prints each row of the input 2D-matrix line by line
  */
 void printMatrix(int matrix[rows][cols])
@@ -117,9 +95,6 @@ void printMatrix(int matrix[rows][cols])
     cout << endl;
 }
 
-/*
- * Answer 4
- */
 void transposeMatrix(int matrix[rows][cols])
 {
     int temp, i, j;
@@ -140,7 +115,6 @@ void transposeMatrix(int matrix[rows][cols])
 }
 
 /**
- * Answer 5
  * @param a factor matrix 1
  * @param b factor matrix 2
  * @param c product matrix
@@ -163,9 +137,6 @@ void multiply(int a[rows][cols], int b[rows][cols], int c[rows][cols])
     }
 }
 
-/**
- * Answer 6
- */
 void recMultiply(int a[rows][cols], int b[rows][cols], int c[rows][cols])
 {
     static int i, j, k = 0;
@@ -195,7 +166,7 @@ void recMultiply(int a[rows][cols], int b[rows][cols], int c[rows][cols])
 }
 
 /*
- * Answer 7: Pointer notation
+ * Pointer notation
  */
 void fillMatrix2(int** pp)
 {
@@ -239,7 +210,6 @@ void transposeMatrix2(int** pp)
 }
 
 /*
- * Answer 8:
  * As long as we know the dimensions, it is possible to 
  * implement a matrix using a 1-dimensional array instead of a
  * 2-dimensional one.
